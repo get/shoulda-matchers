@@ -8,7 +8,7 @@ module Shoulda # :nodoc:
       # Options:
       # * <tt>with_message</tt> - value the test expects to find in
       #   <tt>errors.on(:attribute)</tt>. <tt>Regexp</tt> or <tt>String</tt>.
-      #   Defaults to the translation for <tt>:blank</tt>.
+      #   Defaults to the translation for <tt>:not_an_email_address</tt>.
       #
       # Examples:
       #   it { should validate_email_address_of(:email) }
@@ -26,7 +26,7 @@ module Shoulda # :nodoc:
 
         def matches?(subject)
           super(subject)
-          @expected_message ||= :blank
+          @expected_message ||= :not_an_email_address
           disallows_value_of("foo bar", @expected_message)
         end
 
